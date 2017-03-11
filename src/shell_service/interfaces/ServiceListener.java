@@ -1,9 +1,17 @@
 package shell_service.interfaces;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.SocketTimeoutException;
 
 public interface ServiceListener {
+	/**
+	 * Returns the Socket's InputStream
+	 * @return
+	 * @throws IOException 
+	 */
+	public InputStream getInputStream() throws IOException;
+	
 	/**
 	 * Reads a line of text from the Socket
 	 * @return
@@ -13,7 +21,7 @@ public interface ServiceListener {
 	
 	
 	/**
-	 * Reads the 1st set of data on the input buffer into
+	 * Reads the 1st 1024 bytes of data on the input buffer into
 	 * a string.
 	 * 
 	 * @param charType the type of characters that
@@ -25,7 +33,7 @@ public interface ServiceListener {
 	public String readStream(String charType) throws SocketTimeoutException;
 
 	/**
-	 * Reads the entire input buffer into
+	 * Reads from the input buffer into
 	 * a string until input is shutdown.
 	 * 
 	 * @param charType the type of characters that

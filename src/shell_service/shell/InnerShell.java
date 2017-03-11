@@ -121,4 +121,10 @@ public class InnerShell implements ServiceListener{
 		
 		return ret;
 	}
+
+	@Override
+	public InputStream getInputStream() throws IOException {
+		// TODO Auto-generated method stub
+		return this.s.getInputStream();
+	}
 }
